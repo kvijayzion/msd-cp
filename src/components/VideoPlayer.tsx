@@ -27,7 +27,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ isDarkMode }) => {
   const videos: Video[] = [
     {
       id: '1',
-      url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+      url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
       title: 'Beautiful Sunset',
       description: 'A stunning sunset over the mountains with vibrant colors painting the sky.',
       likes: 1234,
@@ -35,7 +35,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ isDarkMode }) => {
     },
     {
       id: '2',
-      url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
+      url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
       title: 'Ocean Waves',
       description: 'Relaxing ocean waves crashing against the shore on a peaceful evening.',
       likes: 2567,
@@ -43,7 +43,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ isDarkMode }) => {
     },
     {
       id: '3',
-      url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4',
+      url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
       title: 'City Lights',
       description: 'Time-lapse of bustling city life with beautiful light trails and urban energy.',
       likes: 3891,
