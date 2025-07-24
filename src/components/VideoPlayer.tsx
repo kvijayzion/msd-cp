@@ -103,10 +103,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ isDarkMode }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] p-4">
+    <div className="flex items-center justify-center">
       <div 
         ref={containerRef}
-        className={`relative w-full max-w-sm aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ${
+        className={`relative w-full aspect-[9/16] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ${
           isDarkMode
             ? 'bg-gray-800'
             : 'bg-gray-100'

@@ -87,7 +87,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ isDarkMode }) => {
 
   return (
     <div
-      className={`h-[calc(100vh-6rem)] rounded-3xl transition-all duration-500 ${
+      className={`h-[calc(100vh-8rem)] rounded-3xl transition-all duration-500 overflow-hidden ${
         isDarkMode
           ? 'bg-gray-800'
           : 'bg-white'
