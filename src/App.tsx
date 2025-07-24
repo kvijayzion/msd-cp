@@ -312,15 +312,15 @@ function App() {
       </div>
 
       {/* Floating Elements */}
-      <div className={\`absolute top-20 right-20 w-4 h-4 rounded-full animate-bounce delay-300 transition-all duration-500 ${
+      <div className={"absolute top-20 right-20 w-4 h-4 rounded-full animate-bounce delay-300 transition-all duration-500 " + (
         isDarkMode ? 'bg-purple-400/40' : 'bg-white/30'
-      }`}></div>
-      <div className={\`absolute bottom-32 left-16 w-3 h-3 rounded-full animate-bounce delay-700 transition-all duration-500 ${
+      )}></div>
+      <div className={"absolute bottom-32 left-16 w-3 h-3 rounded-full animate-bounce delay-700 transition-all duration-500 " + (
         isDarkMode ? 'bg-indigo-400/40' : 'bg-pink-300/40'
-      }`}></div>
-      <div className={\`absolute top-1/3 left-8 w-2 h-2 rounded-full animate-bounce delay-1000 transition-all duration-500 ${
+      )}></div>
+      <div className={"absolute top-1/3 left-8 w-2 h-2 rounded-full animate-bounce delay-1000 transition-all duration-500 " + (
         isDarkMode ? 'bg-pink-400/50' : 'bg-indigo-300/50'
-      }`}></div>
+      )}></div>
     </div>
   );
 }
