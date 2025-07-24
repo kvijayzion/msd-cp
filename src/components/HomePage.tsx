@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import VideoPlayer from './VideoPlayer';
 import VideoPlayerSkeleton from './VideoPlayerSkeleton';
+import RightPanel from './RightPanel';
 
 const HomePage: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -37,96 +39,31 @@ const HomePage: React.FC = () => {
   return (
     <div className={`min-h-screen transition-all duration-500 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900' 
-        : 'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500'
+        ? 'bg-gray-900' 
+        : 'bg-gray-50'
     }`}>
-      {/* Background Pattern */}
-      <div className={`absolute inset-0 transition-all duration-500 ${
-        isDarkMode ? 'bg-black bg-opacity-30' : 'bg-black bg-opacity-10'
-      }`}></div>
-      
-      {/* Animated Background Elements */}
-      <div className={`absolute top-10 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse transition-all duration-500 ${
-        isDarkMode 
-          ? 'bg-purple-600 bg-opacity-20' 
-          : 'bg-white bg-opacity-10'
-      }`}></div>
-      <div className={`absolute bottom-10 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000 transition-all duration-500 ${
-        isDarkMode 
-          ? 'bg-indigo-600 bg-opacity-20' 
-          : 'bg-pink-400 bg-opacity-20'
-      }`}></div>
-
-      {/* Dark Mode Toggle */}
-      <div className="absolute top-6 right-6 z-50">
-        <button
-          onClick={toggleDarkMode}
-          className={`relative group p-3 rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 ${
-            isDarkMode
-              ? 'bg-gray-800/80 backdrop-blur-sm'
-              : 'bg-white/20 backdrop-blur-sm'
-          }`}
-          style={{
-            boxShadow: isDarkMode
-              ? `
-                6px 6px 16px rgba(0, 0, 0, 0.4),
-                -6px -6px 16px rgba(255, 255, 255, 0.05),
-                inset 2px 2px 4px rgba(0, 0, 0, 0.2),
-                inset -2px -2px 4px rgba(255, 255, 255, 0.1)
-              `
-              : `
-                6px 6px 16px rgba(0, 0, 0, 0.15),
-                -6px -6px 16px rgba(255, 255, 255, 0.3),
-                inset 2px 2px 4px rgba(0, 0, 0, 0.1),
-                inset -2px -2px 4px rgba(255, 255, 255, 0.8)
-              `
-          }}
-        >
-          <div className="relative">
-            {isDarkMode ? (
-              <Sun className={`w-6 h-6 transition-all duration-300 ${
-                isDarkMode ? 'text-yellow-400' : 'text-white'
-              }`} />
-            ) : (
-              <Moon className={`w-6 h-6 transition-all duration-300 ${
-                isDarkMode ? 'text-blue-400' : 'text-white'
-              }`} />
-            )}
-          </div>
-          
-          {/* Glow effect */}
-          <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10 ${
-            isDarkMode
-              ? 'bg-gradient-to-r from-yellow-400/30 to-orange-400/30'
-              : 'bg-gradient-to-r from-blue-400/30 to-purple-400/30'
-          }`}></div>
-        </button>
-      </div>
-
       {/* Navbar */}
-      <div className="relative z-10">
-        <Navbar isDarkMode={isDarkMode} />
-      </div>
+      <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
-      {/* Main Content */}
-      <div className="relative z-10">
-        {isLoading ? (
-          <VideoPlayerSkeleton isDarkMode={isDarkMode} />
-        ) : (
-          <VideoPlayer isDarkMode={isDarkMode} />
-        )}
-      </div>
+      {/* Sidebar */}
+      <Sidebar isDarkMode={isDarkMode} />
 
-      {/* Floating Elements */}
-      <div className={`absolute top-20 right-20 w-4 h-4 rounded-full animate-bounce delay-300 transition-all duration-500 ${
-        isDarkMode ? 'bg-purple-400/40' : 'bg-white/30'
-      }`}></div>
-      <div className={`absolute bottom-32 left-16 w-3 h-3 rounded-full animate-bounce delay-700 transition-all duration-500 ${
-        isDarkMode ? 'bg-indigo-400/40' : 'bg-pink-300/40'
-      }`}></div>
-      <div className={`absolute top-1/3 left-8 w-2 h-2 rounded-full animate-bounce delay-1000 transition-all duration-500 ${
-        isDarkMode ? 'bg-pink-400/50' : 'bg-indigo-300/50'
-      }`}></div>
+      {/* Main Content Area */}
+      <div className="flex ml-20 pt-16">
+        {/* Left Side - Video Player */}
+        <div className="flex-shrink-0 p-4">
+          {isLoading ? (
+            <VideoPlayerSkeleton isDarkMode={isDarkMode} />
+          ) : (
+            <VideoPlayer isDarkMode={isDarkMode} />
+          )}
+        </div>
+
+        {/* Right Side - Panel */}
+        <div className="flex-1 p-4">
+          <RightPanel isDarkMode={isDarkMode} />
+        </div>
+      </div>
     </div>
   );
 };
