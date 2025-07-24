@@ -67,6 +67,25 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
                   : 'bg-gray-100/80'
               }`}
               style={{
+                boxShadow: isDarkMode
+                  ? `
+                    4px 4px 12px rgba(0, 0, 0, 0.4),
+                    -4px -4px 12px rgba(255, 255, 255, 0.02),
+                    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+                    inset -2px -2px 4px rgba(255, 255, 255, 0.05)
+                  `
+                  : `
+                    4px 4px 12px rgba(0, 0, 0, 0.1),
+                    -4px -4px 12px rgba(255, 255, 255, 0.8),
+                    inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+                    inset -2px -2px 4px rgba(255, 255, 255, 0.9)
+                  `
+              }}
+            >
+              <User className={`w-5 h-5 transition-all duration-300 ${
+                isDarkMode ? 'text-gray-300' : 'text-gray-600'
+              }`} />
+            </button>
           </div>
         </div>
       </div>
